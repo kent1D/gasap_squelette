@@ -145,6 +145,13 @@ font-size: 0.9em;
 	line-height: 1.3em;
 	padding:0 20px 50px;
 }
+.page_carte #contenu{
+	width:100%;
+	padding:0 20px 20px;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing:border-box;
+}
 #milieu{
 	float: left;
 	width: 190px;
@@ -154,6 +161,28 @@ font-size: 0.9em;
 #droite{
 	float: left;
 	width: 250px;
+}
+.page_carte #droite{
+	float:none;
+	width:100%;
+}
+
+.page_carte #droite > div,.page_carte #droite .box.annonce,.page_carte #droite .box.telechargements{
+	width:32%;
+	float:left;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	padding:1%;
+	margin:0;
+}
+
+.page_carte #droite .box.annonce{
+	margin-right:2%;
+}
+
+.page_carte #droite .box.telechargements{
+	margin-left:2%;
 }
 #pied{
 	position: fixed;
@@ -318,6 +347,9 @@ text-align:right;
 	list-style: none outside none;
 }
 
+ul#legende{
+	margin-bottom:10px;
+}
 #contenu ul#legende li{
 display:inline;
 margin:5px 5px 0 0;
@@ -415,7 +447,7 @@ margin:5px 0;
 /*------------- droite*/
 #droite .box{
 	padding:10px;
-background-color:#DBDB71;
+	background-color:#DBDB71;
 	color: #6B6704;
 }
 #droite .box h4{
