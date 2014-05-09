@@ -1,0 +1,20 @@
+<paquet
+	prefix="gasap_skel"
+	version="1.0.0"
+	categorie="squelette"
+	etat="stable"
+	compatibilite="[3.0.0;3.0.*]"
+	logo="images/gasap-24.png"
+>	
+
+	<nom>GASAP (Squelette)</nom>
+	<!-- Gasap -->
+
+	<auteur>Sébastien Denooz</auteur>
+	<auteur>kent1</auteur>
+
+	<licence>GNU/GLP</licence>
+
+	<necessite nom="gis" />
+	<necessite nom="gasap" />
+</paquet>
