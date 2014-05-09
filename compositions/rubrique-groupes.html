@@ -14,34 +14,30 @@
 					[<h1><span>(#TITRE)</span></h1>]
 					[(#TEXTE)]
 
-	<BOUCLE_accueil(ARTICLES){id_article=#ID_ARTICLE_ACCUEIL}{doublons accueil}>
-		[(#INCLURE{fond=inclures/article-accueil}{env}{id_article})]
-	</BOUCLE_accueil>
+					<BOUCLE_accueil(ARTICLES){id_article=#ID_ARTICLE_ACCUEIL}{doublons accueil}>
+						[(#INCLURE{fond=inclures/article-accueil}{env}{id_article})]
+					</BOUCLE_accueil>
+				<div>
+				Légende :
+				<img src="#CHEMIN{images/icon_cereal11.png}" alt="-" class="v-middle" /> <multi>[fr]GASAP en construction[nl]SAGAL in constructie</multi>, 
+				<img src="#CHEMIN{images/icon_betterave11.png}" alt="-" class="v-middle" /> <multi>[fr]GASAP avec place libre[nl]SAGAL met vrije plaatsen</multi>
+			</div>
 
-		<div>
-		Légende :
-			<img src="#CHEMIN{images/icon_cereal11.png}" alt="-" class="v-middle" /> <multi>[fr]GASAP en construction[nl]SAGAL in constructie</multi>, 
-			<img src="#CHEMIN{images/icon_betterave11.png}" alt="-" class="v-middle" /> <multi>[fr]GASAP avec place libre[nl]SAGAL met vrije plaatsen</multi>
-		</div>
-
-		<BOUCLE_lesgasaps(GASAPS){par code_postal}{par nom}{statut != poubelle}{', '}>
+			<BOUCLE_lesgasaps(GASAPS){par code_postal}{par nom}{statut != poubelle}{', '}>
 				[<br /><b>#CODE_POSTAL (#VILLE|unique) :</b>]
 				[(#COMPLET|=={0}|?{
-													<a href="[(#URL_PAGE{gasap,id_gasap=#ID_GASAP})]">
-														<img src="
-															[(#STATUT|=={prepa}|oui)#CHEMIN{images/icon_betterave11.png}] 
-															[(#STATUT|=={en_attente}|oui)#CHEMIN{images/icon_betterave11.png}] 
-															[(#STATUT|=={valide}|oui)#CHEMIN{images/icon_cereal11.png}] 
-															[(#STATUT|=={publie}|oui)#CHEMIN{images/icon_cereal11.png}]
-														" alt="-" class="v-middle" />
-														#NOM
-													</a>
-													,
-													#NOM
-													})]
-		</BOUCLE_lesgasaps>
+					<a href="[(#URL_PAGE{gasap,id_gasap=#ID_GASAP})]">
+						<img src="
+							[(#STATUT|=={prepa}|oui)#CHEMIN{images/icon_betterave11.png}] 
+							[(#STATUT|=={en_attente}|oui)#CHEMIN{images/icon_betterave11.png}] 
+							[(#STATUT|=={valide}|oui)#CHEMIN{images/icon_cereal11.png}] 
+							[(#STATUT|=={publie}|oui)#CHEMIN{images/icon_cereal11.png}]
+						" alt="-" class="v-middle" />
+						#NOM
+					</a>
+					,#NOM})]
+			</BOUCLE_lesgasaps>
 
-				
 					<B_SousRub>
 					<ul class="spip liste-nointro liste rub">
 						<BOUCLE_SousRub(RUBRIQUES){id_parent}>
@@ -73,9 +69,7 @@
 						})]
 						</BOUCLE_article>
 					<//B_test-arts>
-					
 
-					
 				</div>
 				[(#INCLURE{fond=inclures/milieu,env,lang})]
 				[(#INCLURE{fond=inclures/droite,env,lang})]

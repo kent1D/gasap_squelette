@@ -1,5 +1,4 @@
 <BOUCLE_Rubrique(RUBRIQUES){id_rubrique}>
-<?xml version="1.0" encoding="#CHARSET"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
 	<head>
@@ -13,15 +12,15 @@
 					[<h1><span>(#TITRE)</span></h1>]
 					[(#TEXTE)]
 
-	<BOUCLE_accueil(ARTICLES){id_article=#ID_ARTICLE_ACCUEIL}{doublons accueil}>
-		[(#INCLURE{fond=inclures/article-accueil}{env}{id_article})]
-	</BOUCLE_accueil>
+					<BOUCLE_accueil(ARTICLES){id_article=#ID_ARTICLE_ACCUEIL}{doublons accueil}>
+						[(#INCLURE{fond=inclures/article-accueil,env,id_article})]
+					</BOUCLE_accueil>
 					
 					<B_SousRub>
 					<ul class="spip">
 						<BOUCLE_SousRub(RUBRIQUES){id_parent}>
 							<li>
-								<A href="#URL_RUBRIQUE">#TITRE</A>
+								<a href="#URL_RUBRIQUE">#TITRE</a>
 								[(#TEXTE|couper{255}|paragrapher)]
 							</li>
 						</BOUCLE_SousRub>
@@ -42,7 +41,6 @@
 			</div>
 			<div class="rallonge"></div>
 		</div>
-
 		[(#INCLURE{fond=inclures/pied,env,lang})]
 	</body>
 </html>

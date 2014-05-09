@@ -1,13 +1,13 @@
 <div id="pied">
 	<div class="herbe">&nbsp;</div>
 	<p class="left">
-		<multi>[fr]Derni&egrave;re mise à jour [nl]Laatst aangepast</multi>: <BOUCLE_maj(RUBRIQUES){age>=0}{par date}{inverse}{0,1}>[(#DATE|affdate)]</BOUCLE_maj>
-	<br />
-		<a href="#URL_PAGE{backend-actu}"><img src="#CHEMIN{images/RSS.png}" />RSS</a>
+		<:gasap_skel:info_derniere_maj:><BOUCLE_maj(RUBRIQUES){age>=0}{par date}{inverse}{0,1}>[(#DATE|affdate)]</BOUCLE_maj>
+		<br />
+		<a href="#URL_PAGE{backend-actu}">[(#CHEMIN{images/RSS.png}|balise_img)]RSS</a>
 	</p>
 	<p class="right">
-		<multi>[fr]Avec le soutien de [nl]Met de steurn van</multi>: 
-		<a href="http://www.ibgebim.be"><img src="#CHEMIN{images/logoIBGE.jpg}" alt="<multi>[fr]IBGE[nl]BIM</multi>" title="<multi>[fr]IBGE[nl]BIM</multi>" /></a>
-		<a href="http://www.bruxelles.irisnet.be/"><img src="#CHEMIN{images/logoBrusselsIris.png}" alt="<multi>[fr]Bruxelles[nl]Brussel</multi>" title="<multi>[fr]Bruxelles[nl]Brussel</multi>" /></a>
+		<:gasap_skel:info_soutien:>
+		<a href="http://www.ibgebim.be" title="<:gasap_skel:alt_ibge|attribut_html:>">[(#CHEMIN{images/logoIBGE.jpg}|balise_img{<:gasap_skel:alt_ibge:>})]</a>
+		<a href="http://www.bruxelles.irisnet.be/" title="<:gasap_skel:alt_bruxelles|attribut_html:>">[(#CHEMIN{images/logoBrusselsIris.png}|balise_img{<:gasap_skel:alt_bruxelles:>})]</a>
 	</p>
 </div>

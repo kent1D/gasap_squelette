@@ -1,8 +1,8 @@
-<BOUCLE_Article(ARTICLES){id_article}>
+<BOUCLE_article(ARTICLES){id_article}>
 	<div class="art-intro">
 	[(#ENV{showdate}|=={oui}|oui)[<p class="date">(#DATE|affdate)</p>]]
 	[<h3 class="spip"><a href="#URL_ARTICLE">(#TITRE)</a></h3>]
 	[<h4 class="spip">(#SOUSTITRE)</h4>]
 	[(#INTRODUCTION|paragrapher)]
 	</div>
-</BOUCLE_Article>
+</BOUCLE_article>
