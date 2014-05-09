@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="#CHARSET"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
 	<head>
 		[(#INCLURE{fond=inclures/head}{id_rubrique}{id_article})]
 	</head>
-	<body>
+	<body class="page_carte">
 		<div id="page">
 				[(#INCLURE{fond=inclures/entete,env,lang})]
 			<div id="principale">
@@ -17,72 +16,8 @@
 						<li><img src="[(#CHEMIN{images/icon_cereal20.png})]" alt="<:gasap:groupe_en_construction:>" />&nbsp;<:gasap:groupe_en_construction:></li>
 						<li><img src="[(#CHEMIN{images/icon_betterave20.png})]" alt="<:gasap:groupe_avec_place_libre:>" />&nbsp;<:gasap:groupe_avec_place_libre:></li>
 					</ul>
-
-					<script type="text/javascript">
-						
-						$(document).ready(function(){
-							// initialise the map with your choice of API
-							var mapstraction = new mxn.Mapstraction('map_canvas','openlayers');
-							$.ajax({
-								type: "GET",
-								url: "#URL_PAGE{coordonees.xml}",
-								dataType: "xml",
-								success: function(xml){
-									$(xml).find("coordonnees").find("coor").each(function()
-									{
-										
-										if ($(this).attr("complet") == "1"){
-											var icone = '[(#CHEMIN{images/icon_haricot20.png})]';
-										}else if($(this).attr("complet") == "2"){
-											var icone = '[(#CHEMIN{images/icon_cereal20.png})]';
-										}else{
-											var icone = '[(#CHEMIN{images/icon_betterave20.png})]';
-										}
-										
-										var myPoint = new mxn.LatLonPoint(parseFloat($(this).attr("lat")),parseFloat($(this).attr("lng")));
-										
-										
-										mapstraction.addControls({
-											pan: true,
-											zoom: 'small',
-											map_type: true
-										});
-										
-										my_marker = new mxn.Marker(myPoint);
-										my_marker.setIcon(icone);
-										my_marker.setLabel($(this).text());
-										if ($(this).attr("complet") == "0"){
-											var text = '<b>'+$(this).text()+'</b><br /><a href="spip.php?page=gasap&id_gasap='+$(this).attr("id")+'"><:gasap:voir_le_gasap:></a>';
-										}else if($(this).attr("complet") == "2"){
-											var text = '<b>'+$(this).text()+'</b><br /><:gasap:groupe_en_construction:><br /><a href="spip.php?page=gasap&id_gasap='+$(this).attr("id")+'"><:gasap:participez:></a>';
-										}else{
-											var text = '<b>'+$(this).text()+'</b>';
-										}
-										my_marker.setInfoBubble(text);
-										mapstraction.addMarker(my_marker);
-										var foo = function() { mapstraction.removeMarker(my_marker); };
-										
-									});
-								}
-							});
-								var myPoint = new mxn.LatLonPoint(50.832,4.365);
-								mapstraction.setCenterAndZoom(myPoint, 12);
-							
-						});
-
-						
-					</script>
-					<br />
-					<!-- <div id="console" >
-					
-					</div>
-					<br /> -->
-					
-					<div style="width: 500px; height: 750px; margin: auto;">
-						<div id="map_canvas" style="width: 500px; height: 750px;"></div>
-					</div>
+					[(#MODELE{carte_gis, zoom=12, limit=100, scale=oui,largeur=100%,hauteur=750px,objets=gasaps})]
 				</div>
-				[(#INCLURE{fond=inclures/milieu,env,lang})]
 				[(#INCLURE{fond=inclures/droite,env,lang})]
 				<div class="clear">&nbsp;</div>
 			</div>

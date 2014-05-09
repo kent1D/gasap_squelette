@@ -1,0 +1,9 @@
+		<BOUCLE_art(GASAPS){0, #ENV{limit}}{lat != ''}{","}>
+		{"type": "Feature",
+		"geometry": {"type": "Point", "coordinates": [#LNG, #LAT]},
+		"id":"#ID_GASAP",
+		"properties": {
+			"title":[(#NOM|extraire_multi|supprimer_numero|json_encode)][(#REM),
+			"description":[(#STATUT|=={prepa}|?{[<:gasap:groupe_en_construction:><br /><a href="(#URL_PAGE{gasap}|parametre_url{id_gasap,#ID_GASAP})"><:gasap:participez:></a>],[(#COMPLET|=={1}|?{'',[<a href="(#URL_PAGE{gasap}|parametre_url{id_gasap,#ID_GASAP})"><:gasap:voir_le_gasap:></a>]})]}|json_encode)]]
+			[(#STATUT|=={prepa}|?{[(#CHEMIN{images/icon_cereal20.png}|balise_img|gis_icon_properties)],[(#COMPLET|=={1}|?{[(#CHEMIN{images/icon_haricot20.png}|balise_img|gis_icon_properties)],[(#CHEMIN{images/icon_betterave20.png}|balise_img|gis_icon_properties)]})]})]
+		}}</BOUCLE_art>
