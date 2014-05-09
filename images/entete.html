@@ -1,0 +1,16 @@
+<div id="entete">
+	<div id="menu_lang">
+		[(#INCLURE{fond=inclures/menu_lang, lang, env})]
+	</div>
+	<div id="menu_haut">
+		[(#INCLURE{fond=inclure/menu, env, identifiant=menu_haut_#LANG})]
+		<a href="http://<multi>[fr]www.gasap.be/?lang=fr[nl]www.sagal.be/?lang=nl</multi>">
+			<img src="#CHEMIN{images/logo_<multi>[fr]GASAP[nl]SAGAL</multi>.png}" alt="[(#DESCRIPTIF_SITE_SPIP|textebrut)]" />
+		</a>
+		<h2><multi>[fr]le r&eacute;seau bruxellois[nl]het brusselse netwerk</multi></h2>
+	</div>
+</div>
+<div id="menu">
+	<img src="http://www.gasap.be/?action=get_coordonees" style="height: 1px;width: 1px;"/>
+	[(#INCLURE{fond=inclure/menu, env, identifiant=menu_principal_#LANG})]
+</div>

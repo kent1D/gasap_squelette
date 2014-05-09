@@ -1,0 +1,69 @@
+#CACHE{0}#HTTP_HEADER{Content-type: text/html; charset=#CHARSET}
+
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'><html>
+<head>
+<title>Newsletter GASAP - SAGAL</title>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Bitter">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Coustard">
+<style type="text/css">
+<!--
+.abomailman_envoyer tbody tr:nth-child(2n) td, 
+.abomailman_envoyer tbody tr:nth-child(2n) th, 
+.abomailman_envoyer tbody tr.even td, 
+.abomailman_envoyer tbody tr.even th{
+background-color:#fff;
+}
+.abomailman_envoyer table.spip td, 
+.abomailman_envoyer table.spip th, 
+.abomailman_envoyer th, 
+.abomailman_envoyer td, 
+.abomailman_envoyer captio{
+padding:0;
+}
+.abomailman_envoyer .cadre-formulaire-editer,
+.abomailman_envoyer #conteneur #contenu,
+.abomailman_envoyer #conteneur #contenu .abo_message
+width:850px !important;
+}
+.abomailman_envoyer .cadre-formulaire-editer{
+padding-left:300px;
+}
+.abomailman_envoyer .formulaire_spip .fieldset fieldset.previsu,
+.abomailman_envoyer .cadre-formulaire-editer .formulaire_spip{
+background-color:transparent;
+}
+table,
+*{
+padding:0;
+margin:0;
+}
+
+a,a.spip_out {text-decoration:none;	color:#B6481C;}
+a:hover {color: #D5A327;text-decoration: underline;}
+h3 a, h3 a.spip_out,h4 a, h4 a.spip_out {color: #5e512d;}
+h3 a:hover, h4 a:hover {color: #B6481C;}
+
+a.img,img {border:none;}
+
+h4{
+font-size:1em;
+font-weight:bold;
+margin-bottom:3px;
+}
+
+-->
+</style>
+
+</head>
+<body style="background-color:#ADC920;width: 100%;">
+<table id="body_backup" cellpadding="0" cellspacing="0" border="0"><tr><td style="background-color:#ADC920;margin-top:5px;font: 1em Verdana, Arial, Helvetica, sans-serif;color:#333333;font-size:13px;width: 100%; padding:10px;">
+	<table id="container" cellpadding="0" cellspacing="0" border="0" width="830"><tr><td style="width:830px;margin:10px auto;">
+	<BOUCLE_set-langue(RUBRIQUES){racine}{par titre}{tout}>
+		[(#INCLURE{fond=inclures/contenu-newsletter,lang=#LANG,env})]
+	</BOUCLE_set-langue>
+	</td></tr></table>
+</td></tr></table>
+</body>
+</html>
+
+

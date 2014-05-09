@@ -1,0 +1,33 @@
+<div id="droite">
+	<div class="box annonce" >
+	<BOUCLE_annonce(BREVES){!par date}{0,1}{lang}{doublons}>
+		<h3><multi>[fr]Les petites annonces du R&eacute;seau[nl]Kleine Mededelingen</multi></h3>
+		<h4>#TITRE</h4>
+		<p>#TEXTE</p>
+	</BOUCLE_annonce>
+	<B_annonce2>
+		<hr />
+	<BOUCLE_annonce2(BREVES){id_mot=62}{doublons}{!par date}{0,1}{lang}>
+		<h4>#TITRE</h4>
+		<p>#TEXTE</p>
+	</BOUCLE_annonce2>
+	</div>
+	<B_info>
+		<div class="box info" >
+	<BOUCLE_info(BREVES){id_mot=71}{doublons}{!par date}{0,1}{lang}>
+			<h4>#TITRE</h4>
+			<p>#TEXTE</p>
+	</BOUCLE_info>
+		</div>
+	</B_info>
+<!--[(#REM) 
+	<div class="box newsletter">
+		<h4>Newsletter</h4>
+		<p><multi>[fr]Recevez notre lettre d'information mensuel[nl]Ontvang onze maandelijke nieuwsbrief</multi></p>
+		[(#FORMULAIRE_ABOMAILMAN_MINI_UNE_LISTE{1})]
+	</div>]-->
+	<div class="box telechargements">
+		<h4><multi>[fr]&Aacute; t&eacute;l&eacute;charger[nl]Binnenhalen</multi></h4>
+		[(#INCLURE{fond=inclure/menu, env, identifiant=telechargement_#LANG})]
+	</div>
+</div>

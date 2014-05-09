@@ -1,0 +1,5 @@
+<composition>
+	<nom>Rubrique articles entiers</nom>
+	<description>Les articles sont affichés directement en entier</description>
+	<icon>rubrique-filtres.png</icon>
+</composition>

@@ -1,0 +1,23 @@
+<meta http-equiv="Content-Type" content="text/html; charset=#CHARSET" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="DC.Creator" content="#SPIP_VERSION" />
+<meta name="DC.Date.modified" scheme="W3CDTF" content="<BOUCLE_maj(RUBRIQUES){age>=0}{par date}{inverse}{0,1}>[(#DATE|affdate{"YYY-mm-dd"})]</BOUCLE_maj>" />
+
+<title>#NOM_SITE_SPIP<BOUCLE_TitreArticle(ARTICLES){id_article}>[ : (#TITRE)]</BOUCLE_TitreArticle></B_TitreArticle><BOUCLE_TitreRubrique(RUBRIQUES){id_rubrique}>[ : (#TITRE)]</BOUCLE_TitreRubrique><//B_TitreArticle>
+[(#ENV{page}|=={recherche}|oui)- <:resultats_recherche:>]
+</title>
+
+<!--[if IE 7]>
+	<link rel="stylesheet" type="text/css" href ="#CHEMIN{screen-ie7.css}" media="screen" title="Normal" />
+<![endif]-->
+#INSERT_HEAD
+
+[<link rel="stylesheet" type="text/css" href ="(#CHEMIN{spip_style.css})" media="screen" title="Normal" />]
+[<link rel="stylesheet" type="text/css" href ="(#CHEMIN{spip_formulaires.css})" media="screen" title="Normal" />]
+[<link rel="stylesheet" type="text/css" href ="(#CHEMIN{screen.css})" media="screen" title="Normal" />]
+
+
+
+[(#ENV{robot}|=={no}|oui)<meta name="robots" content="none" />]
+
+

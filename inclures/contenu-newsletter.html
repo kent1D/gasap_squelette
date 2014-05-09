@@ -1,0 +1,254 @@
+<BOUCLE_langue(RUBRIQUES){racine}{lang}>
+<a style="color:#B6481C;" href="#<multi>[fr]nl[nl]fr</multi>"><multi>[fr]Nederlandse versie oderaan[nl]Version française ci dessus</multi></a><a name="#LANG"></a>
+	
+<table class="cadre" cellpadding="0" cellspacing="0" border="0" width="830"><tr><td style="background-color:#fff;border:#353600 1px solid;">
+		
+	<table class="entete" cellpadding="0" cellspacing="0" border="0" width="830">
+		<tr>
+			<td cellpadding="0" cellspacing="0" border="0">
+				<table cellpadding="0" cellspacing="0" border="0">
+					<tr>
+						<td width="20" valign="top" style="vertical-align:top;" />
+						<td cellpadding="0" cellspacing="0" border="0" valign="top" style="vertical-align:top;">
+							<a style="color:#B6481C;" href="#URL_SITE_SPIP" target="_blank">
+								<img src="#CHEMIN{images/logo100_<multi>[fr]GASAP[nl]SAGAL</multi>.png}" alt="logo <multi>[fr]GASAP[nl]SAGAL</multi>" style="border:none;padding: 10px 0 0 20px;" />
+							</a>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td cellpadding="0" cellspacing="0" border="0" valign="top" style="vertical-align:top;">
+				<table cellpadding="0" cellspacing="0" border="0" width="100%">
+					<tr>
+						<td colspan="2" cellpadding="0" cellspacing="0" border="0">
+							<table cellpadding="0" cellspacing="0" border="0" width="100%">
+								<tr>
+									<td height="10" valign="top"  style="vertical-align:top;" />
+								</tr>
+								<tr>
+									<td cellpadding="0" cellspacing="0" border="0" valign="top" style="vertical-align:top;color:#5e512d;text-align:right;">
+										<BOUCLE_site(RUBRIQUES){tout}{lang}{0,1}>
+											<b><a style="color:#5e512d; margin-bottom:-15px" href="#URL_SITE_SPIP" target="_blank">
+												www.<multi>[fr]gasap[nl]sagal</multi>.be
+											</a></b>
+										</BOUCLE_site>
+										[<br />NEWSLETTER (#DATE|affdate_mois_annee)]
+									</td>
+								</tr>
+								<tr>
+									<td height="30" valign="top"  style="vertical-align:top;" />
+								</tr>
+							</table>
+						</td>
+						<td cellpadding="0" cellspacing="0" border="0" width="100" valign="top">
+							<table cellpadding="0" cellspacing="0" border="0">
+								<tr>
+									<td height="3" colspan="3" valign="top"  style="vertical-align:top;" />
+								</tr>
+								<tr>
+									<td width="13" />
+									<td cellpadding="0" cellspacing="0" border="0">
+										<img src="http://gasap.be/squelettes/images/epis80jaune.png" width="77" height="79" style="border:none;" alt="&gt;" />
+									</td>
+									<td width="10" />
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td cellpadding="0" cellspacing="0" border="0" colspan="3" style="font-size:2.3em;font-family:Coustard,serif;color:#b3472a;">
+								<multi>[fr]De la fourche[nl]Van boerderij</multi> <span style="font-family:Bitter,sans;color:#CCA32D;"><multi>[fr]&agrave; la fourchette[nl]tot bord</multi></span>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td height="10" />
+		</tr>
+	</table><!-- end:entete-->
+
+		<B_article-edito>
+		<table cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td height="10" />
+			</tr>
+			<tr>
+				<td width="30" />
+				<td cellpadding="0" cellspacing="0" border="0" style="color:#5e512d;">
+		<BOUCLE_article-edito(ARTICLES){id_mot=81}{!par date}{0,1}{lang}{statut IN publie,prepa}{lang}>
+					[(#TEXTE|image_reduire{500,0}|liens_absolus)]
+		</BOUCLE_article-edito>
+				</td>
+				<td width="30" />
+			</tr>
+			<tr>
+				<td height="10" />
+			</tr>
+		</table>
+		</B_article-edito>
+
+		<table class="contenu" cellpadding="0" cellspacing="0" border="0" width="830">
+		<tr>
+			<td height="10" />
+		</tr>
+		<tr>
+			<td width="4" />
+
+			<td class="colonne1" width="200" valign="top" style="vertical-align:top;">
+			<table class="contenu" cellpadding="0" cellspacing="0" border="0" width="200"><tr><td style="vertical-align:top;padding:0 4px 0 2px;width:200px;">
+				<BOUCLE_mots-gauche(MOTS){id_groupe=11}{titre==^(gauche)}>
+					<B_article-gauche>
+					<table cellpadding="0" cellspacing="0" border="0" width="200"><tr>
+						<td style="width:7px;" />
+						<td>
+							<table cellpadding="0" cellspacing="0" border="0">
+								<tr>
+									<td cellpadding="0" cellspacing="0" border="0" width="20" valign="top" style="vertical-align:top;text-align:right;">
+										<img src="http://gasap.be/squelettes/images/navet_noir.png" width="15" height="23" style="vertical-align: middle;" alt="&gt;" />&nbsp; &nbsp;
+									</td>
+									<td cellpadding="0" cellspacing="0" border="0" style="color: #353600;font-size:1.4em;">
+										[(#TITRE|replace{gauche}|textebrut|supprimer_numero)]
+									</td>
+								</tr>
+								<tr>
+									<td height="9" colspan="2" style="border:1px solid #353600;border-width:1px 0 0;width:200px;" />
+								</tr>
+							</table>
+
+						<BOUCLE_article-gauche(ARTICLES){id_mot}{!par date}{doublons}{lang}>
+							<table cellpadding="0" cellspacing="0" border="0" width="200">
+							<tr>
+								<td class="inner" style="border:1px dotted #7D7700;border-width:0 0 1px;">
+									<table cellpadding="0" cellspacing="0" border="0">
+									<tr>
+										<td style="font-size:1.1em;color:#B6481C;font-weight:bold;"><a style="color:#B6481C;" href="[(#URL_ARTICLE|liens_absolus)]">#TITRE</a></td>
+									</tr>
+										<BOUCLE_img(DOCUMENTS){id_article}{extension==jpg|png|gif}{vu=non}>
+											<tr>
+												<td style="text-align:center;text-align:center;">[(#FICHIER|image_reduire{174,0})]</td>
+											</tr>
+										</BOUCLE_img>
+									<tr>
+										<td>[(#CHAPO|sinon{#TEXTE}|image_reduire{174,0}|couper{400, '..'}|textebrut|liens_absolus)] 
+											<BOUCLE_test-afficer-lireplus2(MOTS){id_article}{id_mot=87}> </BOUCLE_test-afficer-lireplus2>
+												<a style="color:#B6481C;" href="[(#URL_ARTICLE|liens_absolus)]"><multi>[fr]lire la suite[nl]Lees meer</multi></a>
+											<//B_test-afficer-lireplus2>
+										</td>
+									</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td height="7" />
+							</tr></table>
+						</BOUCLE_article-gauche>
+						</td>
+						<td style="width:7px;" />
+						</tr>
+					<tr>
+						<td height="10" />
+					</tr></table>
+					</B_article-gauche>
+				</BOUCLE_mots-gauche>
+			</td></tr></table>
+			</td>
+
+			<td width="2" />
+
+			<td class="colonne2"  style="background-color:#fff;vertical-align:top;padding:0 4px 0 2px;width:400px;">
+				<BOUCLE_mots-centre(MOTS){id_groupe=11}{titre==^(centre)}>
+					<B_article-centre>
+					<table cellpadding="0" cellspacing="0" border="0">
+						<tr>
+							<td height="3" colspan="3" style="background-color:#B3472A;" />
+						</tr>
+						<tr>
+							<td cellpadding="0" cellspacing="0" border="0" width="20" style="background-color:#B3472A;color:#fff;border:1px solid #B3472A;border-width:0 0 1px;text-align:right">
+								<img src="http://gasap.be/squelettes/images/fleche_blanche.png" width="12" height="17" style="vertical-align:middle;" alt="&gt;" />
+							</td>
+							<td cellpadding="0" cellspacing="0" border="0" width="3" style="background-color:#B3472A;color:#fff;border:1px solid #B3472A;border-width:0 0 1px;" />
+							<td cellpadding="0" cellspacing="0" border="0" width="390" style="background-color:#B3472A;color:#fff;border:1px solid #B3472A;border-width:0 0 1px;font-size:1.3em; font-weight:bold;vertical-align:middle;">
+								[(#TITRE|replace{centre}|textebrut|supprimer_numero)]
+							</td>
+						</tr>
+						<tr>
+							<td height="2" colspan="3" style="background-color:#B3472A;" />
+						</tr>
+						</table>
+						<BOUCLE_article-centre(ARTICLES){id_mot}{0,1}{!par date}{lang}{doublons}>
+							<table cellpadding="0" cellspacing="0" border="0">
+								<tr>
+									<td class="inner" width="390" style="border:1px solid #B3472A;padding:7px;margin-bottom: 7px;">
+										[<h4><a style="color:#B6481C;" href="[(#URL_ARTICLE|liens_absolus)]">(#TITRE)</a></h4>]
+										<BOUCLE_img2(DOCUMENTS){id_article}{extension==jpg|png|gif}{vu=non}><p style="text-align:center;margin:0 auto;">[(#FICHIER|image_reduire{365,0})]</p></BOUCLE_img2>
+										[<b>(#CHAPO|image_reduire{365,0}|liens_absolus)</b>]
+										<table cellpadding="0" cellspacing="0" border="0" width="390"><tr><td>
+											[(#TEXTE|image_reduire{365,0}|liens_absolus|textebrut|couper{400, '..'})] 
+											<BOUCLE_test-afficer-lireplus(MOTS){id_article}{id_mot=87}> </BOUCLE_test-afficer-lireplus>
+												<a style="color:#B6481C;" href="[(#URL_ARTICLE|liens_absolus)]"><multi>[fr]lire la suite[nl]Lees meer</multi></a>
+											<//B_test-afficer-lireplus>
+										</td></tr></table> 
+									</td>
+								</tr>
+								<tr>
+									<td height="10" />
+								</tr>
+							</table>
+						</BOUCLE_article-centre>
+					</BOUCLE_mots-centre>
+				</td>
+
+				<td width="2" />
+
+				<td class="colonne3" valign="top" style="vertical-align:top;width:200px;text-align:right;vertical-align:top;">
+				<table cellpadding="0" cellspacing="0" border="0">
+					<tr>
+						<td cellpadding="0" cellspacing="0" border="0" width="50" valign="top" style="vertical-align:top;text-align:right;">
+							<img src="http://gasap.be/squelettes/images/epis.png" width="43" height="44" />
+						</td>
+						<td cellpadding="0" cellspacing="0" border="0" style="color: #686601;font-size: 1.7em;font-weight:bold;">
+							[(#LANG|=={fr}|oui)[(#INFO_TITRE{id_rubrique,141})]] [(#LANG|=={nl}|oui)[(#INFO_TITRE{id_rubrique,142})]]
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" height="5" />
+					</tr>
+				</table>
+					<BOUCLE_article-droite(ARTICLES){id_rubrique IN 141,142}{par num titre}{lang}{doublons}>
+							<table cellpadding="0" cellspacing="0" border="0"><tr>
+								<td class="inner" style="margin-bottom: 7px;border:1px dotted #d4a42b;padding:2px;">
+									<table cellpadding="0" cellspacing="0" border="0">
+									<tr>
+										<td style="font-size:1.1em;color:#B6481C;font-weight:bold;"><a style="color:#B6481C;" href="[(#URL_ARTICLE|liens_absolus)]">[(#TITRE|textebrut)]</a></td>
+									</tr>
+									<tr>
+										<td>[(#TEXTE|image_reduire{174,0}|textebrut|liens_absolus)]</td>
+									</tr>
+									</table>
+									<tr>
+										<td height="10" />
+									</tr>
+								</table>
+					</BOUCLE_article-droite>
+				</td>
+				<td width="4" />
+		</tr>
+		<tr>
+			<td colspan="7" style="background-color:transparent;text-align:center;color: #353600;padding: 5px 10px;">
+					<multi>[fr]Le réseau des GASAP de Bruxelles asbl - Contact : coordinateur@gasap.be[nl]Het Netwerk van de Brusselse SAGAL's - Contact: coordinatie@sagal.be</multi> - <a href="http://www.gasap.be" target="_blank" style="color: #847620;">www.<multi>[fr]gasap[nl]sagal</multi>.be</a>
+			</td>
+		</tr>
+		</table>
+
+</td></tr></table><!-- end cadre -->
+
+	<table cellpadding="0" cellspacing="0" border="0"><tr><td style="font-size:0.85em;margin: 7px 0 0;">
+<multi>[fr]N&#39;h&eacute;sitez pas &agrave; diffuser cette lettre d'information &agrave; vos connaissances ou aux personnes qui pourraient &ecirc;tre int&eacute;ress&eacute;es.[nl]Aarzel niet om deze nieuwsbrief door te sturen naar jullie kennissen, vrienden en familie of andere geïnteresseerden.</multi>
+		<br />
+<multi>[fr]Si vous ne souhaitez plus &ecirc;tre tenu au courant des activit&eacute;s du réseau des GASAP, [nl]Indien u onze nieuwsbrief liever niet meer ontvangt, </multi>
+		<a style="color:#B6481C;" href="mailto:coordinateur@gasap.be"><multi>[fr]veuillez nous en informer[nl]gelieve het ons dan te laten weten</multi></a>.
+	</td></tr></table>
+<br />
+</BOUCLE_langue>
+

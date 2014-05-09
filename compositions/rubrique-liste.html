@@ -1,0 +1,66 @@
+<BOUCLE_Rubrique(RUBRIQUES){id_rubrique}>
+<?xml version="1.0" encoding="#CHARSET"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+	<head>
+		[(#INCLURE{fond=inclures/head}{id_rubrique}{id_article})]
+	</head>
+	<body>
+		<div id="page">
+				[(#INCLURE{fond=inclures/entete,env,lang})]
+			<div id="principale">
+				<div id="contenu">
+					[<h1><span>(#TITRE)</span></h1>]
+					[(#TEXTE)]
+
+	<BOUCLE_accueil(ARTICLES){id_article=#ID_ARTICLE_ACCUEIL}{doublons accueil}>
+		[(#INCLURE{fond=inclures/article-accueil}{env}{id_article})]
+	</BOUCLE_accueil>
+				
+					<B_SousRub>
+					<ul class="spip liste-nointro liste rub">
+						<BOUCLE_SousRub(RUBRIQUES){id_parent}>
+							<li>
+								<a href="#URL_RUBRIQUE">#TITRE</a>
+							</li>
+						</BOUCLE_SousRub>
+					</ul>
+					</B_SousRub>
+						#SET{srub,non}
+					<//B_SousRub>
+
+					<BOUCLE_test-arts(ARTICLES){id_rubrique}{1,2}> </BOUCLE_test-arts>
+						<B_articles>
+							[<p class="pagination">(#PAGINATION)</p>]
+							<div class="liste art">
+						<BOUCLE_articles(ARTICLES){lang}{par num titre}{pagination 25}{id_rubrique}>
+							[<h3 class="spip liste-nointro "><a href="#URL_ARTICLE">(#TITRE)</a></h3>]
+						</BOUCLE_articles>
+							</div>
+							[<p class="pagination">(#PAGINATION)</p>]
+						</B_articles>
+					</B_test-arts>
+						<BOUCLE_article(ARTICLES){id_rubrique}>
+						[(#GET{srub}|=={'non'}|?{
+							[<h3 class="spip">(#TITRE)</h3>]
+							,
+							[<h3 class="spip"><a href="#URL_ARTICLE">(#TITRE)</a></h3>]
+						})]
+						</BOUCLE_article>
+					<//B_test-arts>
+					
+
+					
+				</div>
+				[(#INCLURE{fond=inclures/milieu,env,lang})]
+				[(#INCLURE{fond=inclures/droite,env,lang})]
+				<div class="clear">&nbsp;</div>
+			</div>
+			<div class="rallonge"></div>
+		</div>
+
+		[(#INCLURE{fond=inclures/pied,env,lang})]
+	</body>
+</html>
+</BOUCLE_Rubrique>

@@ -1,0 +1,214 @@
+#CACHE{0}#HTTP_HEADER{Content-type: text/html; charset=#CHARSET}
+<B_site>
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'><html>
+<head><title>Lettre d&#39;information hebdomadaire</title>
+<style type="text/css">
+<!--
+*{
+padding:0;
+margin:0;
+}
+body {
+margin-top:5px;
+background-color: #CCCC33;
+font: 1em Verdana, Arial, Helvetica, sans-serif;
+color:#333333;
+font-size:13px;
+}
+
+a {
+	text-decoration:none;
+	color:#000000;}
+
+a:hover {
+	color: #324349;
+	text-decoration: underline;}
+
+/* Espaceur de blocs */
+.nettoyeur { clear: both; margin: 0; padding: 0; border: none; height: 0; line-height: 1px; font-size: 1px; }
+
+a.img,img {border:none;}
+
+hr{
+margin:4px 0;
+color:#ddd;
+border:1px solid #ddd;
+border-width:0 0 1px;
+}
+
+h2{
+color: #574D2D; 
+border:1px solid #574D2D;
+border-width:0 0 1px;
+font-size:1.4em;
+padding:2px 2px 0;
+margin:0;
+}
+h3{
+font-size:1.1em;
+color:#1E3E4A;
+margin-top:5px;
+}
+td#col3{
+text-align:right;
+}
+h4{
+font-size:1em;
+font-weight:bold;
+}
+
+div#container{
+width:830px;
+margin:10px auto;
+}
+div#entete{
+font-size:.8em;
+margin-bottom:3px;
+}
+div#cadre{
+background-color:#fff;
+border:#D0D0D0 1px solid;
+}
+table{
+background-color:#fff;
+width:100%;
+border:1px solid #E15212;
+border-width:1px 0 0;
+padding-top:10px;
+}
+td{
+vertical-align:top;
+padding:0 4px 0 2px;
+width:200px;
+}
+.inner{
+margin-bottom: 7px;
+}
+.center{
+text-align:center;
+margin:0 auto;
+}
+td#col2{
+width:400px;
+}
+td#col2 h2{
+color:#fff;
+border:none;
+background:#969600 url('[(#CHEMIN{img/clevermail_bg_td2_h2.png}|abs_url)]') no-repeat -5px -5px;
+margin:0 1px 0;
+font-size:1.3em;
+padding:2px 5px
+}
+td#col2 .inner{
+background-color:#ececec;
+padding:7px;
+}
+div#mail-pied{
+text-align:center;
+border-top: 5px solid #C8952B;
+background-color:#7D7700;
+color: #fff;
+padding: 5px 10px;
+}
+div#mail-pied a{
+color: #fff;
+}
+ul{
+margin-left:1em;
+}
+-->
+</style>
+</head>
+<body style="width: 100%; padding:10px;">
+
+<div id="container">
+	<div id="entete">
+		<div style="float:left">Nous contacter : <a href="mailto:info@ieb.be?Subject=Message d'un abonn&eacute; &agrave; la Lettre d'IEB">info@gasap.be</a>.</div>
+		<div style="float:right">Probl&egrave;me d'affichage&nbsp;? <a href="@@URL_LETTRE@@" target="_blank">Cliquer ici</a>.</div>
+		<br class="nettoyeur" />
+	</div>
+
+	<div id="cadre">
+		<div style="height:130px;">
+			[<a href="#URL_SITE_SPIP" target="_blank" style="margin:0;">(#LOGO_SITE_SPIP)</a>]
+			<p style="float:right;margin:7px;font-weight:bold">
+<BOUCLE_post(CM_POSTS){pst_id=#ENV{id}}>
+<BOUCLE_list(CM_LISTS){lst_id}> #SET{nom_liste,#LST_NAME}</BOUCLE_list>
+	[(#PST_HTML|abs_url|replace{@@NOM_LETTRE@@,#GET{nom_liste}})]
+</BOUCLE_post>
+</p>
+
+		</div>
+		<div style="color:#574D2D;background-color:#CC972F;padding:5px;">
+				<b>Le réseau Bruxellois <BOUCLE_site(RUBRIQUES){tout}{0,1}><a style="color:#ffffff;" href="#URL_SITE_SPIP" target="_blank">www.gasap.be</a></BOUCLE_site></b>
+		</div>
+
+		<table>
+			<tr>
+				<td id="col1">
+					<div>
+					<B_article-gauche>
+						[<h2>(#TITRE)</h2>]
+					<BOUCLE_article-gauche(ARTICLES){id_article=449}>
+						<div class="inner">
+							[<h4><a href="[(#URL_ARTICLE|abs_url)]">(#TITRE)</a></h4>]
+							<BOUCLE_img(DOCUMENTS){id_article}{extension==jpg|png|gif}><p class="center">[(#FICHIER|image_reduire{174,0})]</p></BOUCLE_img>
+							[<div>(#TEXTE_NEWSLETTER|sinon{#INTRODUCTION}|image_reduire{178,0}|abs_url)</div>]
+						</div>
+						<div>
+							<h2>Liste liens fixes</h2>
+							<ul>
+								<li><a href="#">lien 1</a></li>
+								<li><a href="#">lien 2</a></li>
+								<li><a href="#">lien 3</a></li>
+								<li><a href="#">lien 4</a></li>
+							</ul>
+						</div>
+					</BOUCLE_article-gauche>
+					</div>
+				</td>
+				<td id="col2">
+					<BOUCLE_mots-centre(MOTS){id_groupe=11}{titre==^(centre)}>
+						<B_article-centre>
+						[<h2>(#TITRE|replace{centre}|supprimer_numero)</h2>]
+						<BOUCLE_article-centre(ARTICLES){id_mot}{0,1}>
+							<div class="inner">
+								[<h4><a href="[(#URL_ARTICLE|abs_url)]">(#TITRE)</a></h4>]
+								<BOUCLE_img2(DOCUMENTS){id_article}{extension==jpg|png|gif}><p class="center">[(#FICHIER|image_reduire{365,0})]</p></BOUCLE_img2>
+								[<div>(#TEXTE_NEWSLETTER|sinon{#INTRODUCTION}|abs_url)</div>]
+							</div>
+						</BOUCLE_article-centre>
+					</BOUCLE_mots-centre>
+					<div>[<img src="(#CHEMIN{img/abonnezvous_inventaire2.gif}|abs_url)" />][<img src="(#CHEMIN{img/panorama2.jpg}|abs_url)" />]</div>
+				</td>
+				<td id="col3">
+					<BOUCLE_mots-droite(MOTS){id_groupe=11}{titre==^(droite)}>
+						<div[ style="(#COMPTEUR_BOUCLE|alterner{background-color:#DBDB71;padding:3px 7px;,''})"]>
+						<B_article-droite>
+							[<h2>(#TITRE|replace{droite\d*}|supprimer_numero)</h2>]
+						<BOUCLE_article-droite(ARTICLES){id_mot}{0,1}>
+							<div class="inner">
+								[<h4><a href="[(#URL_ARTICLE|abs_url)]">(#TITRE)</a></h4>]
+								<BOUCLE_img(DOCUMENTS){id_article}{extension==jpg|png|gif}><p class="center">[(#FICHIER|image_reduire{174,0})]</p></BOUCLE_img>
+								[<div>(#TEXTE_NEWSLETTER|sinon{#INTRODUCTION}|image_reduire{178,0}|abs_url)</div>]
+							</div>
+						</BOUCLE_article-droite>
+						</div>
+					</BOUCLE_mots-droite>
+				</td>
+			</tr>
+			<tr>
+		</table>
+	</div>
+	<div id="mail-pied">
+		Le réseau des GASAP bruxellois asbl<br>
+		T&eacute;l. : 02/??? Site : <a href="http://www.gasap.be" target="_blank">www.gasap.be</a>
+	</div>
+	<p style="font-size:0.85em;margin-top:7px;">
+		N&#39;h&eacute;sitez pas &agrave; diffuser cette lettre d'information &agrave; vos connaissances ou aux personnes qui pourraient &ecirc;tre int&eacute;ress&eacute;es.<br />
+		Si vous ne souhaitez plus &ecirc;tre tenu au courant des activit&eacute;s d'Inter-Environnement Bruxelles par courrier &eacute;lectronique, <a href="@@URL_DESINSCRIPTION@@">cliquez ici pour vous d&eacute;sinscrire</a>.
+	</p>
+</div>
+</body></html>
+</B_site>
+

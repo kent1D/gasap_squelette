@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="#CHARSET"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+	<head>
+		[(#INCLURE{fond=inclures/head,robot=no,env,page=recherche})]
+	</head>
+	<body>
+		<div id="page">
+				[(#INCLURE{fond=inclures/entete,env,lang})]
+			<div id="principale">
+				<div id="contenu">
+			[<div class="cartouche">
+				<h1><:resultats_recherche:> &#171;&nbsp;(#RECHERCHE)&nbsp;&#187;</h1>
+			</div>]
+
+			[(#REM) Articles trouves ]
+			<B_articles>
+			<div class="menu menu_articles">
+				#ANCRE_PAGINATION
+				<ul class="spip">
+					<BOUCLE_articles(ARTICLES){lang} {recherche} {!par points} {pagination 50}>
+					<li><a href="#URL_ARTICLE">#TITRE</a></li>
+					</BOUCLE_articles>
+				</ul>
+				[<p class="pagination">(#PAGINATION)</p>]
+			</div>
+			</B_articles>
+			
+			[(#REM) Rubriques trouvees ]
+			<B_rubriques>
+			<div class="menu menu_rubriques">
+				#ANCRE_PAGINATION
+				<ul class="spip">
+					<BOUCLE_rubriques(RUBRIQUES) {lang}{recherche} {!par points} {pagination 50}>
+					<li><a href="#URL_RUBRIQUE">#TITRE</a></li>
+					</BOUCLE_rubriques>
+				</ul>
+				[<p class="pagination">(#PAGINATION)</p>]
+			</div>
+			</B_rubriques>
+			
+				</div>
+				[(#INCLURE{fond=inclures/milieu,env,lang})]
+				[(#INCLURE{fond=inclures/droite,env,lang})]
+				<div class="clear">&nbsp;</div>
+			</div>
+			<div class="rallonge"></div>
+		</div>
+
+		[(#INCLURE{fond=inclures/pied,env,lang})]
+	</body>
+</html>
+

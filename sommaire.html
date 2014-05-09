@@ -1,0 +1,44 @@
+<BOUCLE_Langue(RUBRIQUES){racine}{lang}>
+<?xml version="1.0" encoding="#CHARSET"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+	<head>
+		[(#INCLURE{fond=inclures/head}{id_rubrique}{id_article})]
+	</head>
+	<body>
+		<div id="page">
+				[(#INCLURE{fond=inclures/entete,env,lang})]
+			<div id="principale">
+				<div id="contenu">
+					[<h1><span>(#NOM_SITE_SPIP)</span></h1>]
+					#DESCRIPTIF_SITE_SPIP
+					<h2 class="spip"><multi>[fr]à la une[nl]Laatste nieuws</multi></h2>
+
+					#SET{news,#ARRAY}
+					<BOUCLE_news-rub(ARTICLES){id_rubrique IN 6,108}{lang}>
+						#SET{news,#GET{news}|push{#ID_ARTICLE}}
+					</BOUCLE_news-rub>
+					<BOUCLE_news-mot(ARTICLES){id_mot=70}{lang}>
+						#SET{news,#GET{news}|push{#ID_ARTICLE}}
+					</BOUCLE_news-mot>
+
+					<BOUCLE_Article(ARTICLES){id_article IN #GET{news}}{!par date}{0,3}>
+						[(#INCLURE{fond=inclures/article-intro,id_article,env,showdate=oui,lang})]
+					</BOUCLE_Article>
+
+					<BOUCLE_rub-actu(RUBRIQUES){id_rubrique IN 6,108}{lang}>
+						<p class="plus"><a href="#URL_RUBRIQUE"><:plus_actu:></a></p>
+					</BOUCLE_rub-actu>
+
+				</div>
+				[(#INCLURE{fond=inclures/milieu,env,lang})]
+				[(#INCLURE{fond=inclures/droite,env,lang})]
+				<div class="clear">&nbsp;</div>
+			</div>
+			<div class="rallonge"></div>
+		</div>
+		[(#INCLURE{fond=inclures/pied,env,lang})]
+	</body>
+</html>
+</BOUCLE_Langue>

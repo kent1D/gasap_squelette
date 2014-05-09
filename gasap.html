@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="#CHARSET"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+	<head>
+		[(#INCLURE{fond=inclures/head}{id_rubrique}{id_article})]
+	</head>
+	<body>
+		<div id="page">
+				[(#INCLURE{fond=inclures/entete,env,lang})]
+			<div id="principale">
+				<div id="contenu">
+					<BOUCLE_LeGasap(GASAPS){id_gasap = #ID_GASAP}>
+					<h1><span>#NOM</span></h1>
+					<div>
+						<b><:gasap:adresse:></b>:<br />
+						[(#ADRESSE)<br />]
+						[(#CODE_POSTAL )]#VILLE[, (#COMMUNE)]<br />
+						[Tel: (#TELEPHONE) ][Gsm: (#GSM)]
+						[<p><b><:gasap:permanance:></b>: (#PERMANANCE)</p>]
+						[<p>(#REMARQUES)</p>]
+					</div>
+					<h3 class="spip"><multi>[fr]Contacter le GASAP[nl]Contacteer de SAGAL</multi></h3>
+					[(#STATUT|=={prepa}|?{' ',[(#COMPLET|=={1}|?{'',' '})]})
+						#FORMULAIRE_CONTACT_GASAP
+					]
+					
+				[(#REM)
+					[(#COMPLET|=={0}|?{' ',''})
+						#FORMULAIRE_CONTACT_GASAP
+					]
+				]
+				</BOUCLE_LeGasap>
+				</div>
+				[(#INCLURE{fond=inclures/milieu,env,lang})]
+				[(#INCLURE{fond=inclures/droite,env,lang})]
+				<div class="clear">&nbsp;</div>
+			</div>
+			<div class="rallonge"></div>
+		</div>
+
+		[(#INCLURE{fond=inclures/pied,env,lang})]
+	</body>
+</html>

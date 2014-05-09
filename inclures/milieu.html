@@ -1,0 +1,38 @@
+<div id="milieu">
+
+
+	<BOUCLE-test-art(ARTICLES){id_article}>
+<BOUCLE_rub(RUBRIQUES){id_rubrique}{!id_mot=2}> </BOUCLE_rub>
+
+	[(#REM) Articles dans la meme rubrique ]
+		<B_articles_rubrique>
+		<div class="menu-rub-art">
+				<ul>
+				    <BOUCLE_articles_rubrique(ARTICLES){id_rubrique}{par num titre, titre}{0,10}>
+				    	<li><a href="#URL_ARTICLE"[ class="(#EXPOSE)"]>#TITRE</a></li>
+				    </BOUCLE_articles_rubrique>
+				</ul>
+		</div>
+		</B_articles_rubrique>
+</B_rub>
+	</BOUCLE-test-art>
+
+		<BOUCLE-test-rub(RUBRIQUES){id_rubrique}{!id_mot=2}>
+		[(#REM) Rubriques du meme niveau ]
+			<BOUCLE_test_soeurs(RUBRIQUES){meme_parent}{id_parent ?!IN 101,102}{1,2}> </BOUCLE_test_soeurs>
+				<div class="menu-rub-art">
+					<ul>
+				<BOUCLE_rub_soeur(RUBRIQUES){meme_parent}{par num titre, titre}>
+
+						<li><a href="#URL_RUBRIQUE"[ class="(#EXPOSE)"]>[(#TITRE|couper{80})]</a></li>
+
+				</BOUCLE_rub_soeur>
+					</ul>
+				</div>	
+			</B_test_soeurs>
+		</BOUCLE-test-rub>
+	<//B-test-art>
+
+	[(#INCLURE{fond=inclure/menu, env, identifiant=menu_milieu_#LANG})]
+	[(#INCLURE{fond=inclures/minimap})]
+</div>
