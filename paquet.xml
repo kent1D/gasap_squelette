@@ -4,7 +4,7 @@
 	categorie="squelette"
 	etat="stable"
 	compatibilite="[3.0.0;3.0.*]"
-	logo="images/gasap-24.png"
+	logo="prive/themes/spip/images/gasap-24.png"
 >
 
 	<nom>GASAP (Squelette)</nom>
@@ -15,6 +15,8 @@
 
 	<licence>GNU/GLP</licence>
 
+	<necessite nom="breves" />
 	<necessite nom="gis" />
 	<necessite nom="gasap" />
+	<necessite nom="article_accueil" />
 </paquet>
