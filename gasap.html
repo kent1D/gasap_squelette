@@ -2,41 +2,35 @@
           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
 	<head>
-		[(#INCLURE{fond=inclures/head}{id_rubrique}{id_article})]
+	[(#INCLURE{fond=inclures/head,page})]
 	</head>
 	<body>
 		<div id="page">
-				[(#INCLURE{fond=inclures/entete,env,lang})]
+			[(#INCLURE{fond=inclures/entete,page,lang})]
 			<div id="principale">
 				<div id="contenu">
-					<BOUCLE_LeGasap(GASAPS){id_gasap = #ID_GASAP}>
+					<BOUCLE_legasap(GASAPS){id_gasap = #ID_GASAP}>
 					<h1><span>#NOM</span></h1>
 					<div>
 						<b><:gasap:adresse:></b>:<br />
 						[(#ADRESSE)<br />]
 						[(#CODE_POSTAL )]#VILLE[, (#COMMUNE)]<br />
 						[Tel: (#TELEPHONE) ][Gsm: (#GSM)]
-						[<p><b><:gasap:permanance:></b>: (#PERMANANCE)</p>]
+						[<p><b><:gasap:permanence:></b>: (#PERMANENCE)</p>]
 						[<p>(#REMARQUES)</p>]
 					</div>
-					<h3 class="spip"><multi>[fr]Contacter le GASAP[nl]Contacteer de SAGAL</multi></h3>
-					[(#STATUT|=={prepa}|?{' ',[(#COMPLET|=={1}|?{'',' '})]})
-						#FORMULAIRE_CONTACT_GASAP
+					<h3 class="spip"><:gasap_skel:titre_contacter_gasap:></h3>
+					[(#STATUT|in_array{#LISTE{construction,libre}}|oui)
+						[(#FORMULAIRE_CONTACT_GASAP{#ID_GASAP})]
 					]
-					
-				[(#REM)
-					[(#COMPLET|=={0}|?{' ',''})
-						#FORMULAIRE_CONTACT_GASAP
-					]
-				]
-				</BOUCLE_LeGasap>
+				</BOUCLE_legasap>
 				</div>
-				[(#INCLURE{fond=inclures/milieu,env,lang})]
-				[(#INCLURE{fond=inclures/droite,env,lang})]
+				[(#INCLURE{fond=inclures/milieu,id_article,id_rubrique,page,lang})]
+				[(#INCLURE{fond=inclures/droite,id_article,id_rubrique,page,lang})]
 				<div class="clear">&nbsp;</div>
 			</div>
 			<div class="rallonge"></div>
 		</div>
-		[(#INCLURE{fond=inclures/pied,env,lang})]
+		[(#INCLURE{fond=inclures/pied,lang})]
 	</body>
 </html>
