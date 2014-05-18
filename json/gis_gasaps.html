@@ -4,6 +4,6 @@
 		"id":"#ID_GASAP",
 		"properties": {
 			"title":[(#NOM|extraire_multi|supprimer_numero|json_encode)],
-			"description":[(#STATUT|=={construction}|?{[<:gasap_skel:groupe_en_construction:><br /><a href="(#URL_GASAP)"><:gasap:participez:></a>],[(#STATUT|=={complet}|?{'',[<a href="(#URL_GASAP)"><:gasap:voir_le_gasap:></a>]})]}|json_encode)]
+			"description":[(#STATUT|=={construction}|?{[<p><:gasap_skel:groupe_en_construction:><br /><a href="(#URL_GASAP)"><:gasap:participez:></a></p>],[(#STATUT|=={complet}|?{'',[<p><a href="(#URL_GASAP)"><:gasap:voir_le_gasap:></a></p>]})]}|json_encode)]
 			[(#STATUT|=={construction}|?{[(#CHEMIN{images/icon_cereal20.png}|balise_img|gis_icon_properties)],[(#STATUT|=={complet}|?{[(#CHEMIN{images/icon_haricot20.png}|balise_img|gis_icon_properties)],[(#CHEMIN{images/icon_betterave20.png}|balise_img|gis_icon_properties)]})]})]
 		}}</BOUCLE_art>
