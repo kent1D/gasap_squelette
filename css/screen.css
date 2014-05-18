@@ -4,7 +4,7 @@ h1.spip,h2.spip,h3.spip,h4.spip{
   padding:0; 
 }
 
-BODY { 
+body { 
   font-size: 100%;
   line-height: 1;
   font-family: Arial, 'Times New Roman', sans-serif;
@@ -23,6 +23,11 @@ a:hover,
 a.spip_mail:hover,
 a.spip_out:hover{
 color:#8E0014;
+}
+
+p{
+	line-height:1.1em;
+	padding-bottom:.4em;
 }
 /*blanc*/
 #pied a,
@@ -181,6 +186,10 @@ font-size: 0.9em;
 	margin-right:2%;
 }
 
+.page_carte #droite .box.annonce h3{
+	margin-left:45px;
+	margin-bottom:1.5em;
+}
 .page_carte #droite .box.telechargements{
 	margin-left:2%;
 }
