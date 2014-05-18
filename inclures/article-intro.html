@@ -1,3 +1,9 @@
+[(#REM)
+	Affiche les articles d'introduction des rubriques
+	
+	Peut avoir comme argument :
+	- showdate 'oui' : affiche la date
+]
 <BOUCLE_article(ARTICLES){id_article}>
 	<div class="art-intro">
 	[(#ENV{showdate}|=={oui}|oui)[<p class="date">(#DATE|affdate)</p>]]

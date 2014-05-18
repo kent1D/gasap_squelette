@@ -11,6 +11,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// I
 	'info_derniere_maj' => 'Laatst aangepast:',
+	'info_gasap_construction' => 'SAGAL in constructie',
+	'info_gasap_libre' => 'SAGAL met vrije plaatsen',
 	'info_soutien' => 'Met de steurn van:',
 
 	// L
@@ -20,6 +22,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'plus_actu' => 'meer nieuws',
 
 	// T
+	'titre_contacter_association' => 'Contacter l\'association',
+	'titre_contacter_gasap' => 'Contacteer de SAGAL',
+	'titre_derniers_articles' => 'Laatste artikelen',
 	'titre_reseau' => 'het brusselse netwerk',
 	'titre_telecharger' => 'Binnenhalen',
 	'titre_petites_annonces' => 'Kleine Mededelingen',

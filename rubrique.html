@@ -12,7 +12,6 @@
 				<div id="contenu">
 					[<h1><span>(#TITRE)</span></h1>]
 					[(#TEXTE)]
-
 					<BOUCLE_test-intro(MOTS){id_rubrique}{id_mot=72}>#SET{sansintro,vrai}</BOUCLE_test-intro>
 				
 					<BOUCLE_accueil(ARTICLES){id_article=#ID_ARTICLE_ACCUEIL}{doublons accueil}>
@@ -61,7 +60,6 @@
 			</div>
 			<div class="rallonge"></div>
 		</div>
-
 		[(#INCLURE{fond=inclures/pied,env,lang})]
 	</body>
 </html>

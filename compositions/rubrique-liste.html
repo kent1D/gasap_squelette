@@ -1,9 +1,9 @@
-<BOUCLE_Rubrique(RUBRIQUES){id_rubrique}>
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
 	<head>
-		[(#INCLURE{fond=inclures/head}{id_rubrique}{id_article})]
+		[(#INCLURE{fond=inclures/head,id_rubrique,id_article})]
 	</head>
 	<body>
 		<div id="page">
@@ -16,22 +16,22 @@
 						[(#INCLURE{fond=inclures/article-accueil,env,id_article})]
 					</BOUCLE_accueil>
 				
-					<B_SousRub>
+					<B_sousrub>
 					<ul class="spip liste-nointro liste rub">
-						<BOUCLE_SousRub(RUBRIQUES){id_parent}>
-							<li>
-								<a href="#URL_RUBRIQUE">#TITRE</a>
-							</li>
-						</BOUCLE_SousRub>
+						<BOUCLE_sousrub(RUBRIQUES){id_parent}>
+						<li>
+							<a href="#URL_RUBRIQUE">#TITRE</a>
+						</li>
+						</BOUCLE_sousrub>
 					</ul>
-					</B_SousRub>
+					</B_sousrub>
 						#SET{srub,non}
-					<//B_SousRub>
+					<//B_sousrub>
 
 					<BOUCLE_test-arts(ARTICLES){id_rubrique}{1,2}> </BOUCLE_test-arts>
 						<B_articles>
+						<div class="liste art"[ id="(#ANCRE_PAGINATION|extraire_attribut{id})"]>
 							[<p class="pagination">(#PAGINATION)</p>]
-							<div class="liste art">
 						<BOUCLE_articles(ARTICLES){lang}{par num titre}{pagination 25}{id_rubrique}>
 							[<h3 class="spip liste-nointro "><a href="#URL_ARTICLE">(#TITRE)</a></h3>]
 						</BOUCLE_articles>
@@ -57,4 +57,4 @@
 		[(#INCLURE{fond=inclures/pied,env,lang})]
 	</body>
 </html>
-</BOUCLE_Rubrique>
+</BOUCLE_rubrique>

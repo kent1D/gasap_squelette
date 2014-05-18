@@ -2,7 +2,7 @@
           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
 	<head>
-		[(#INCLURE{fond=inclures/head}{id_rubrique}{id_article})]
+		[(#INCLURE{fond=inclures/head,id_rubrique,id_article})]
 	</head>
 	<body>
 		<div id="page">
@@ -11,7 +11,7 @@
 				<div id="contenu">
 					[<h1><span>(#NOM_SITE_SPIP)</span></h1>]
 					#DESCRIPTIF_SITE_SPIP
-					<h2 class="spip"><multi>[fr]Contacter l'association[nl]Contact</multi></h2>
+					<h2 class="spip"><:gasap_skel:titre_contacter_association:></h2>
 					[ <div class="ajax"> (#FORMULAIRE_CONTACT_ASSOCIATION) </div> ]
 				</div>
 				[(#INCLURE{fond=inclures/milieu,env,lang})]
@@ -20,7 +20,6 @@
 			</div>
 			<div class="rallonge"></div>
 		</div>
-
 		[(#INCLURE{fond=inclures/pied,env,lang})]
 	</body>
 </html>

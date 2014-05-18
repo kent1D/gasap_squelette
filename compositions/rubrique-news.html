@@ -1,4 +1,4 @@
-<BOUCLE_Rubrique(RUBRIQUES){id_rubrique}>
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
 	<head>
@@ -16,16 +16,16 @@
 						[(#INCLURE{fond=inclures/article-accueil,env,id_article})]
 					</BOUCLE_accueil>
 					
-					<B_SousRub>
+					<B_sousrub>
 					<ul class="spip">
-						<BOUCLE_SousRub(RUBRIQUES){id_parent}>
+						<BOUCLE_sousrub(RUBRIQUES){id_parent}>
 							<li>
 								<a href="#URL_RUBRIQUE">#TITRE</a>
 								[(#TEXTE|couper{255}|paragrapher)]
 							</li>
-						</BOUCLE_SousRub>
+						</BOUCLE_sousrub>
 					</ul>
-					</B_SousRub>
+					</B_sousrub>
 
 					<B_articles>
 					<BOUCLE_articles(ARTICLES){lang}{!par date}{pagination 10}{id_rubrique}>
@@ -44,4 +44,4 @@
 		[(#INCLURE{fond=inclures/pied,env,lang})]
 	</body>
 </html>
-</BOUCLE_Rubrique>
+</BOUCLE_rubrique>

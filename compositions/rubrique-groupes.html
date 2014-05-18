@@ -4,51 +4,42 @@
           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
 	<head>
-		[(#INCLURE{fond=inclures/head}{id_rubrique}{id_article})]
+		[(#INCLURE{fond=inclures/head,id_rubrique,id_article})]
 	</head>
 	<body>
 		<div id="page">
-				[(#INCLURE{fond=inclures/entete,env,lang})]
+			[(#INCLURE{fond=inclures/entete,env,lang})]
 			<div id="principale">
 				<div id="contenu">
 					[<h1><span>(#TITRE)</span></h1>]
 					[(#TEXTE)]
-
 					<BOUCLE_accueil(ARTICLES){id_article=#ID_ARTICLE_ACCUEIL}{doublons accueil}>
-						[(#INCLURE{fond=inclures/article-accueil}{env}{id_article})]
+					[(#INCLURE{fond=inclures/article-accueil}{env}{id_article})]
 					</BOUCLE_accueil>
 				<div>
-				Légende :
-				<img src="#CHEMIN{images/icon_cereal11.png}" alt="-" class="v-middle" /> <multi>[fr]GASAP en construction[nl]SAGAL in constructie</multi>, 
-				<img src="#CHEMIN{images/icon_betterave11.png}" alt="-" class="v-middle" /> <multi>[fr]GASAP avec place libre[nl]SAGAL met vrije plaatsen</multi>
+				<:gasap_skel:info_legende:>
+				[(#CHEMIN{images/icon_cereal11.png}|balise_img{'',v-middle})] <:gasap_skel:info_gasap_construction:>
+				[(#CHEMIN{images/icon_betterave11.png}|balise_img{'',v-middle})] <:gasap_skel:info_gasap_libre:>
 			</div>
 
-			<BOUCLE_lesgasaps(GASAPS){par code_postal}{par nom}{statut != poubelle}{', '}>
+			<BOUCLE_lesgasaps(GASAPS){par code_postal,nom}{', '}>
 				[<br /><b>#CODE_POSTAL (#VILLE|unique) :</b>]
-				[(#COMPLET|=={0}|?{
-					<a href="[(#URL_PAGE{gasap,id_gasap=#ID_GASAP})]">
-						<img src="
-							[(#STATUT|=={prepa}|oui)#CHEMIN{images/icon_betterave11.png}] 
-							[(#STATUT|=={en_attente}|oui)#CHEMIN{images/icon_betterave11.png}] 
-							[(#STATUT|=={valide}|oui)#CHEMIN{images/icon_cereal11.png}] 
-							[(#STATUT|=={publie}|oui)#CHEMIN{images/icon_cereal11.png}]
-						" alt="-" class="v-middle" />
-						#NOM
-					</a>
-					,#NOM})]
+				[(#STATUT|=={construction}|oui)<a href="[(#URL_GASAP)]">[(#CHEMIN{images/icon_betterave11.png}|balise_img{'',v-middle})]</a>]
+				[(#STATUT|=={libre}|oui)<a href="[(#URL_GASAP)]">[(#CHEMIN{images/icon_cereal11.png}|balise_img{'',v-middle})]</a>]
+				[(#STATUT|=={complet}|oui)#NOM]
 			</BOUCLE_lesgasaps>
 
-					<B_SousRub>
+					<B_sousrub>
 					<ul class="spip liste-nointro liste rub">
-						<BOUCLE_SousRub(RUBRIQUES){id_parent}>
-							<li>
-								<a href="#URL_RUBRIQUE">#TITRE</a>
-							</li>
-						</BOUCLE_SousRub>
+						<BOUCLE_sousrub(RUBRIQUES){id_parent}>
+						<li>
+							<a href="#URL_RUBRIQUE">#TITRE</a>
+						</li>
+						</BOUCLE_sousrub>
 					</ul>
-					</B_SousRub>
+					</B_sousrub>
 						#SET{srub,non}
-					<//B_SousRub>
+					<//B_sousrub>
 
 					<BOUCLE_test-arts(ARTICLES){id_rubrique}{1,2}> </BOUCLE_test-arts>
 						<B_articles>
@@ -69,7 +60,6 @@
 						})]
 						</BOUCLE_article>
 					<//B_test-arts>
-
 				</div>
 				[(#INCLURE{fond=inclures/milieu,env,lang})]
 				[(#INCLURE{fond=inclures/droite,env,lang})]
@@ -77,7 +67,6 @@
 			</div>
 			<div class="rallonge"></div>
 		</div>
-
 		[(#INCLURE{fond=inclures/pied,env,lang})]
 	</body>
 </html>

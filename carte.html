@@ -6,24 +6,23 @@
 	</head>
 	<body class="page_carte">
 		<div id="page">
-				[(#INCLURE{fond=inclures/entete,env,lang})]
+			[(#INCLURE{fond=inclures/entete,env,lang})]
 			<div id="principale">
 				<div id="contenu">
 					<h1><span><:gasap:carte_des_gasaps:></span></h1>
 					<h4><:gasap:legende:></h4>
 					<ul id="legende">
-						<li><img src="[(#CHEMIN{images/icon_haricot20.png})]" alt="<:gasap:groupe_complet:>" />&nbsp;<:gasap:groupe_complet:></li>
-						<li><img src="[(#CHEMIN{images/icon_cereal20.png})]" alt="<:gasap:groupe_en_construction:>" />&nbsp;<:gasap:groupe_en_construction:></li>
-						<li><img src="[(#CHEMIN{images/icon_betterave20.png})]" alt="<:gasap:groupe_avec_place_libre:>" />&nbsp;<:gasap:groupe_avec_place_libre:></li>
+						<li>[(#CHEMIN{images/icon_haricot20.png}|balise_img)]&nbsp;<:gasap:groupe_complet:></li>
+						<li>[(#CHEMIN{images/icon_cereal20.png}|balise_img)]&nbsp;<:gasap:groupe_en_construction:></li>
+						<li>[(#CHEMIN{images/icon_betterave20.png}|balise_img)]&nbsp;<:gasap:groupe_avec_place_libre:></li>
 					</ul>
-					[(#MODELE{carte_gis, zoom=12, limit=100, scale=oui,largeur=100%,hauteur=750px,objets=gasaps})]
+					[(#MODELE{carte_gis, zoom=12, limit=100, scale=oui,largeur=100%,hauteur=750px,objets=gasaps,zoom_molette=non})]
 				</div>
 				[(#INCLURE{fond=inclures/droite,env,lang})]
 				<div class="clear">&nbsp;</div>
 			</div>
 			<div class="rallonge"></div>
 		</div>
-
 		[(#INCLURE{fond=inclures/pied,env,lang})]
 	</body>
 </html>
