@@ -3,20 +3,20 @@
 	<BOUCLE_annonce(BREVES){!par date}{0,1}{lang}{doublons}>
 		<h3><:gasap_skel:titre_petites_annonces:></h3>
 		<h4>#TITRE</h4>
-		[<p>(#TEXTE)</p>]
+		[(#TEXTE)]
 	</BOUCLE_annonce>
 	<B_annonce2>
 		<hr />
 		<BOUCLE_annonce2(BREVES){id_mot=62}{doublons}{!par date}{0,1}{lang}>
 		<h4>#TITRE</h4>
-		[<p>(#TEXTE)</p>]
+		[(#TEXTE)]
 		</BOUCLE_annonce2>
 	</div>
 	<B_info>
 		<div class="box info">
 		<BOUCLE_info(BREVES){id_mot=71}{doublons}{!par date}{0,1}{lang}>
 			<h4>#TITRE</h4>
-			[<p>(#TEXTE)</p>]
+			[(#TEXTE)]
 		</BOUCLE_info>
 		</div>
 	</B_info>
